@@ -1,0 +1,63 @@
+const express = require('express');
+const path = require('path');
+const cors = require('cors');
+
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+app.use(cors());
+app.use(express.json());
+app.use(express.static(path.join(__dirname, 'public')));
+
+const leagueData = {
+  name: 'FantaSuperLega',
+  season: '2026/2027',
+  rounds: 12,
+  summary: {
+    totalTeams: 8,
+    averageScore: 72.4,
+    topScorer: 'Roma FC',
+    lastUpdated: '2 ore fa'
+  },
+  standings: [
+    { position: 1, team: 'Roma FC', played: 11, wins: 8, draws: 1, losses: 2, points: 25, gf: 31, ga: 17 },
+    { position: 2, team: 'Juventus Dream', played: 11, wins: 7, draws: 2, losses: 2, points: 23, gf: 28, ga: 19 },
+    { position: 3, team: 'Inter Glory', played: 11, wins: 7, draws: 1, losses: 3, points: 22, gf: 30, ga: 22 },
+    { position: 4, team: 'Napoli Empire', played: 11, wins: 6, draws: 3, losses: 2, points: 21, gf: 27, ga: 20 },
+    { position: 5, team: 'Milan Attack', played: 11, wins: 5, draws: 3, losses: 3, points: 18, gf: 24, ga: 23 },
+    { position: 6, team: 'Lazio Vision', played: 11, wins: 4, draws: 3, losses: 4, points: 15, gf: 21, ga: 25 },
+    { position: 7, team: 'Torino Titans', played: 11, wins: 3, draws: 3, losses: 5, points: 12, gf: 18, ga: 29 },
+    { position: 8, team: 'Fiorentina Fire', played: 11, wins: 1, draws: 2, losses: 8, points: 5, gf: 14, ga: 38 }
+  ],
+  fixtures: [
+    { home: 'Roma FC', away: 'Napoli Empire', date: 'Domani', time: '20:45' },
+    { home: 'Juventus Dream', away: 'Inter Glory', date: 'Domani', time: '18:30' },
+    { home: 'Milan Attack', away: 'Lazio Vision', date: 'Mer 12', time: '21:00' },
+    { home: 'Torino Titans', away: 'Fiorentina Fire', date: 'Mer 12', time: '19:00' }
+  ],
+  market: [
+    { name: 'Kvaratskhelia', role: 'Attaccante', club: 'Napoli', price: 20, trend: '+3%' },
+    { name: 'Theo Hernandez', role: 'Difensore', club: 'Milan', price: 18, trend: '+2%' },
+    { name: 'Calhanoglu', role: 'Centrocampista', club: 'Inter', price: 17, trend: '+4%' },
+    { name: 'Sanchez', role: 'Portiere', club: 'Inter', price: 15, trend: '+1%' },
+    { name: 'Lookman', role: 'Attaccante', club: 'Atalanta', price: 16, trend: '+5%' }
+  ],
+  teams: [
+    { name: 'Roma FC', coach: 'Marco', budget: 100, players: 11 },
+    { name: 'Juventus Dream', coach: 'Luca', budget: 95, players: 11 },
+    { name: 'Inter Glory', coach: 'Davide', budget: 98, players: 11 },
+    { name: 'Napoli Empire', coach: 'Giorgio', budget: 92, players: 11 }
+  ]
+};
+
+app.get('/api/league', (req, res) => {
+  res.json(leagueData);
+});
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+app.listen(PORT, () => {
+  console.log(`FantaSuperLega server running on http://localhost:${PORT}`);
+});

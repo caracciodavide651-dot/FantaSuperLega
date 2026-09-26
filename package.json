@@ -1,0 +1,22 @@
+{
+  "name": "fantasuperlega",
+  "version": "1.0.0",
+  "description": "MVP di gestione lega fantacalcio",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "keywords": [
+    "fantacalcio",
+    "league",
+    "sports",
+    "mvp"
+  ],
+  "author": "caracciodavide651-dot",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2"
+  }
+}

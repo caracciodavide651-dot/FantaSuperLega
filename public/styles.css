@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FantaSuperLega</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Fantacalcio</p>
+          <h1 id="league-name">FantaSuperLega</h1>
+        </div>
+        <div class="topbar-meta">
+          <span id="season">2026/2027</span>
+          <button class="primary-btn">Aggiorna</button>
+        </div>
+      </header>
+
+      <section class="summary-grid" id="summary-grid"></section>
+
+      <main class="main-grid">
+        <section class="panel">
+          <div class="panel-header">
+            <h2>Classifica</h2>
+            <span id="rounds">Giornate</span>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Squadra</th>
+                  <th>Pt</th>
+                  <th>PG</th>
+                  <th>V</th>
+                  <th>N</th>
+                  <th>P</th>
+                  <th>GF</th>
+                  <th>GS</th>
+                </tr>
+              </thead>
+              <tbody id="standings-body"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <aside class="panel">
+          <div class="panel-header">
+            <h2>Prossime partite</h2>
+          </div>
+          <div id="fixtures" class="fixture-list"></div>
+        </aside>
+      </main>
+
+      <section class="bottom-grid">
+        <div class="panel">
+          <div class="panel-header">
+            <h2>Squadre</h2>
+          </div>
+          <div id="teams" class="teams-grid"></div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">
+            <h2>Mercato</h2>
+          </div>
+          <div id="market" class="market-list"></div>
+        </div>
+      </section>
+    </div>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
